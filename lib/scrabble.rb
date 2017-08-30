@@ -14,6 +14,20 @@ class Scrabble
     score.to_i
   end
 
+  def score_with_multipliers(word = nil, letter_multipliers)
+
+    score = 0
+      individual_letters = word.split('')
+      individual_letters.each do |letter|
+        index = 0
+        letter_point_value = point_values[letter.upcase] * letter_multipliers[index]
+        index += 1
+        score = score.to_i + letter_point_value.to_i
+      end
+      score = score.to_i
+  end
+
+
   def point_values
     {
       "A"=>1, "B"=>3, "C"=>3, "D"=>2,
