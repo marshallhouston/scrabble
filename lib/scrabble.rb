@@ -1,7 +1,15 @@
 class Scrabble
 
   def score(word)
-    1
+    
+    return score.to_i = 0 if word == nil
+    individual_letters = word.split('')
+    score = 0
+    individual_letters.each do |letter|
+      point_value = point_values[letter.upcase]
+      score = score.to_i + point_value.to_i
+    end
+    score.to_i
   end
 
   def point_values
